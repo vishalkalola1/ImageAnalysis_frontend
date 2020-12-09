@@ -44,3 +44,9 @@ header.masthead h1 {
     font-size: 3.5rem;
   }
 }
+
+.titleBottom {
+  max-width: 3.25rem;
+  border-width: 0.2rem;
+  border-color: #f4623a;
+}

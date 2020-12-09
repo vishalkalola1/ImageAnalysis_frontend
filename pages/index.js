@@ -1,5 +1,6 @@
 import Head from "next/head";
-import MasterHead from "../src/components/MasterHead";
+import About from "../src/components/homePage/About";
+import MasterHead from "../src/components/homePage/MasterHead";
 import Navbar from "../src/components/navigations/Navbar";
 import styles from "../styles/Home.module.css";
 
@@ -13,12 +14,12 @@ export default function Home() {
       <Navbar />
       <MasterHead
         title={
-          <h1 className="text-uppercase text-white font-weight-bold">
+          <h1 className="text-uppercase mt-5 pt-5 mt-md-0 pt-md-0 text-white font-weight-bold">
             UNDERSTAND <br /> your consumers
           </h1>
         }
         subtitle={
-          <p className="text-white font-weight-light mb-5">
+          <p className={`font-weight-light mb-5 ${styles.textWhite75}`}>
             Understand how consumers talk about you online with StalkMarket's
             Image Analyis on Social Media. Make faster, data-driven decisions
             today!.
@@ -34,6 +35,7 @@ export default function Home() {
           </button>
         }
       />
+      <About />
     </>
   );
 }

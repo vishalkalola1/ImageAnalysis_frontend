@@ -5,4 +5,13 @@
   text-transform: uppercase;
   border: none;
   border-radius: 10rem;
+  background-color: #f4623a;
+}
+
+.mastheadBtn:hover {
+  background-color: #f24516;
+}
+
+.textWhite75 {
+  color: rgba(255, 255, 255, 0.75);
 }
