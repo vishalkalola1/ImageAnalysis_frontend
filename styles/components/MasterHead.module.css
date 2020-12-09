@@ -1,5 +1,6 @@
 .masthead {
   padding: 0;
+  height: 100vh;
 }
 
 .mastheadInner {
@@ -26,7 +27,6 @@ header.masthead h1 {
 }
 @media (max-width: 992px) {
   .masthead {
-    height: 100vh;
     padding-bottom: 0;
   }
   .masthead p {
