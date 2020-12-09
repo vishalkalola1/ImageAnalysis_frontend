@@ -12,13 +12,11 @@
   background-attachment: scroll;
   background-size: cover;
   margin: 0;
+  padding: 4rem, 0;
 }
 
 .layer {
   background-color: rgba(0, 0, 0, 0.7);
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
 }
@@ -26,16 +24,15 @@
 header.masthead h1 {
   font-size: 2.25rem;
 }
-@media (min-width: 992px) {
-  header.masthead {
+@media (max-width: 992px) {
+  .masthead {
     height: 100vh;
-    min-height: 40rem;
     padding-bottom: 0;
   }
-  header.masthead p {
+  .masthead p {
     font-size: 1.15rem;
   }
-  header.masthead h1 {
+  .masthead h1 {
     font-size: 3rem;
   }
 }

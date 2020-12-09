@@ -3,10 +3,13 @@ import About from "../src/components/homePage/About";
 import MasterHead from "../src/components/homePage/MasterHead";
 import Navbar from "../src/components/navigations/Navbar";
 import styles from "../styles/Home.module.css";
+import { scrollToTop, scrollTo } from '../src/utils/scroller';
+import Button from 'react-bootstrap/Button';
+import { IoChevronUpOutline } from "react-icons/io5";
 
 export default function Home() {
   return (
-    <>
+    <div className="position-relative">
       <Head>
         <title>Image Analysis</title>
         <link rel="icon" href="/favicon.ico" />
@@ -29,13 +32,19 @@ export default function Home() {
         buttons={
           <button
             className={`btn btn-primary js-scroll-trigger ${styles.mastheadBtn}`}
-            href="#about"
+            onClick={() => scrollTo('about')}
           >
             Explore More
           </button>
         }
       />
       <About />
-    </>
+      <Button
+        className={styles.scrollToTop}
+        onClick={() => scrollToTop()}
+      >
+        <IoChevronUpOutline size="2em" />
+      </Button>
+    </div>
   );
 }

@@ -1,5 +1,13 @@
 .navbar {
   background: #333;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding-top: 17px;
+  padding-bottom: 17px;
+}
+
+.navBrand{
+  cursor: pointer;
+}
+
+.navLink.active{
+  border-bottom: 1px solid #FFFFFF;
 }

@@ -9,9 +9,35 @@
 }
 
 .mastheadBtn:hover {
-  background-color: #f24516;
+  background-color: #f24516 !important;
+}
+
+.mastheadBtn:focus {
+  outline:none !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .textWhite75 {
   color: rgba(255, 255, 255, 0.75);
+}
+
+.scrollToTop{
+  background-color: #444444 !important;
+  height:55px;
+  width: 55px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+}
+
+.scrollToTop:hover {
+  background: #333333 !important;
+}
+
+.scrollToTop:focus{
+  outline:none !important;
+  border: none !important;
+  box-shadow: none !important;
 }

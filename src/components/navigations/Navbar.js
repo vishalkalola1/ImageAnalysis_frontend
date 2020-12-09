@@ -1,17 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Nav from "react-bootstrap/Nav";
 import { Navbar as BtNavbar } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import styles from "../../../styles/components/Navbar.module.css";
 import {
-  Link,
-  Element,
   Events,
-  animateScroll as scroll,
   scrollSpy,
-  scroller,
 } from "react-scroll";
+import { scrollTo, scrollToTop } from '../../utils/scroller';
 
 export default function Navbar() {
   useEffect(() => {
@@ -29,22 +26,6 @@ export default function Navbar() {
     };
   });
 
-  function scrollToTop() {
-    scroll.scrollToTop();
-  }
-
-  function scrollToBottom() {
-    scroll.scrollToBottom();
-  }
-
-  function scrollTo() {
-    scroll.scrollTo(100);
-  }
-
-  function handleSetActive(to) {
-    console.log(to);
-  }
-
   return (
     <>
       <BtNavbar
@@ -54,56 +35,24 @@ export default function Navbar() {
         fixed="top"
       >
         <Container>
-          <BtNavbar.Brand href="#home">StalkMarket</BtNavbar.Brand>
+          <BtNavbar.Brand className={styles.navBrand} onClick={() => scrollToTop()}>StalkMarket</BtNavbar.Brand>
           <BtNavbar.Toggle aria-controls="basic-navbar-nav" />
           <BtNavbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto ml-auto">
-              <Nav.Link
-                activeClass="active"
-                to="#about"
-                spy={true}
-                smooth={true}
-                offset={50}
-                duration={500}
-                onSetActive={handleSetActive()}
-              >
+              <Nav.Link className={styles.navLink} onClick={() => scrollTo('about')}>
                 About
               </Nav.Link>
-              <Nav.Link
-                activeClass="active"
-                to="#how-it-works"
-                spy={true}
-                smooth={true}
-                offset={50}
-                duration={500}
-                onSetActive={handleSetActive()}
-              >
+              <Nav.Link onClick={() => scrollTo('how-it-works')}>
                 How it works?
               </Nav.Link>
-              <Nav.Link
-                activeClass="active"
-                href="#team"
-                spy={true}
-                smooth={true}
-                offset={50}
-                duration={500}
-                onSetActive={handleSetActive()}
-              >
+              <Nav.Link onClick={() => scrollTo('team')}>
                 Our Team
               </Nav.Link>
-              <Nav.Link
-                activeClass="active"
-                to="#contact"
-                spy={true}
-                smooth={true}
-                offset={50}
-                duration={500}
-                onSetActive={handleSetActive()}
-              >
+              <Nav.Link onClick={() => scrollTo('contact')}>
                 Contact
               </Nav.Link>
             </Nav>
-            <Button size="sm" variant="outline-warning">
+            <Button size="md" variant="outline-warning">
               Login
             </Button>
           </BtNavbar.Collapse>
