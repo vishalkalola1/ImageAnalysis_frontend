@@ -9,7 +9,7 @@ import { IoChevronUpOutline } from "react-icons/io5";
 
 export default function Home() {
   return (
-    <div className="position-relative">
+    <>
       <Head>
         <title>Image Analysis</title>
         <link rel="icon" href="/favicon.ico" />
@@ -45,6 +45,6 @@ export default function Home() {
       >
         <IoChevronUpOutline size="2em" />
       </Button>
-    </div>
+    </>
   );
 }

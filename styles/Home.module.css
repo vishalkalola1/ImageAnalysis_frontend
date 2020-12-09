@@ -27,7 +27,7 @@
   height:55px;
   width: 55px;
   border-radius: 50%;
-  position: absolute;
+  position: fixed;
   bottom: 15px;
   right: 15px;
 }
