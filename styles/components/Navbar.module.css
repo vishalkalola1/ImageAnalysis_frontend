@@ -1,5 +1,6 @@
 .navbar {
-  min-height:5rem;
+  padding-top:15px;
+  padding-bottom:15px;
 }
 
 .navBrand{
