@@ -22,12 +22,12 @@ export default function Home() {
       <Navbar />
       <MasterHead
         title={
-          <h1 className="text-uppercase mt-5 pt-5 mt-md-0 pt-md-0 text-white font-weight-bold">
+          <h1 className={`text-uppercase text-white`}>
             UNDERSTAND <br /> your consumers
           </h1>
         }
         subtitle={
-          <p className={`font-weight-light mb-5 textWhite75`}>
+          <p className={`font-weight-light mb-5 textWhite75 ${styles.subTitle}`}>
             Understand how consumers talk about you online with StalkMarket's
             Image Analyis on Social Media. Make faster, data-driven decisions
             today!.

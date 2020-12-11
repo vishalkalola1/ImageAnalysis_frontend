@@ -5,24 +5,18 @@ export default function MasterHead(props) {
   const { title, subtitle, bgimage, buttons } = props;
 
   return (
-    <header>
-      <div
-        className={`row ${styles.masthead}`}
-        style={{ backgroundImage: `url(${bgimage})` }}
-      >
-        <div className={`col ${styles.layer}`}>
-          <div className="row h-100 align-items-center justify-content-center text-center">
-            <div className="col-lg-10 align-self-end">
-              {title}
-              <hr className={`my-4 titleBottom`} />
-            </div>
-            <div className="col-xs-12 col-sm-12 col-md-8 align-self-baseline">
-              {subtitle}
-              {buttons}
-            </div>
-          </div>
-        </div>
+    <div
+      className={`${styles.masthead} d-flex flex-column align-items-center justify-content-center text-center`}
+      style={{ backgroundImage: `url(${bgimage})` }}
+    >
+      <div className="col-lg-10">
+        {title}
+        <hr className={`my-4 titleBottom`} />
       </div>
-    </header>
+      <div className="col-xs-12 col-sm-12 col-md-8">
+        {subtitle}
+        {buttons}
+      </div>
+    </div>
   );
 }

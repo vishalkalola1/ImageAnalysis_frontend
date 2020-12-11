@@ -1,20 +1,23 @@
 .masthead {
-  min-height: calc(100vh - 4.7rem);
+  min-height: calc(100vh - 4.9rem);
   width: 100%;
-  object-fit: cover;
   position: relative;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-size: cover;
-  margin: 0;
-  padding: 4rem, 0;
+  padding: 8rem, 0;
+  box-sizing: border-box;
 }
 
-.layer {
+.masthead::before {
+  position: absolute;
+  top:0;
+  left:0;
+  content:"";
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
   width: 100%;
-  min-height: 100%;
 }
 
 .masthead h1 {
