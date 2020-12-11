@@ -6,6 +6,11 @@ import styles from "../styles/Home.module.css";
 import { scrollToTop, scrollTo } from '../src/utils/scroller';
 import Button from 'react-bootstrap/Button';
 import { IoChevronUpOutline } from "react-icons/io5";
+import HowItWorks from "../src/components/homePage/HowItWorks";
+import Team from "../src/components/homePage/Team";
+import Demo from "../src/components/homePage/Demo";
+import Contact from "../src/components/homePage/Contact";
+import Footer from "../src/components/Footer";
 
 export default function Home() {
   return (
@@ -22,7 +27,7 @@ export default function Home() {
           </h1>
         }
         subtitle={
-          <p className={`font-weight-light mb-5 ${styles.textWhite75}`}>
+          <p className={`font-weight-light mb-5 textWhite75`}>
             Understand how consumers talk about you online with StalkMarket's
             Image Analyis on Social Media. Make faster, data-driven decisions
             today!.
@@ -31,7 +36,7 @@ export default function Home() {
         bgimage="/images/background.jpg"
         buttons={
           <button
-            className={`btn btn-primary js-scroll-trigger ${styles.mastheadBtn}`}
+            className={`btn text-light js-scroll-trigger btnPrimary`}
             onClick={() => scrollTo('about')}
           >
             Explore More
@@ -39,6 +44,11 @@ export default function Home() {
         }
       />
       <About />
+      <HowItWorks />
+      <Team />
+      <Demo />
+      <Contact />
+      <Footer />
       <Button
         className={styles.scrollToTop}
         onClick={() => scrollToTop()}

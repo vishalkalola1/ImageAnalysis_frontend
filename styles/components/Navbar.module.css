@@ -1,11 +1,13 @@
 .navbar {
-  background: #333;
-  padding-top: 17px;
-  padding-bottom: 17px;
+  min-height:5rem;
 }
 
 .navBrand{
   cursor: pointer;
+}
+
+.navLink{
+  font-size: 1.2rem;
 }
 
 .navLink.active{

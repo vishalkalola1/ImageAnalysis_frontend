@@ -1,27 +1,3 @@
-.mastheadBtn {
-  padding: 1.25rem 2.25rem;
-  font-size: 0.85rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  border: none;
-  border-radius: 10rem;
-  background-color: #f4623a;
-}
-
-.mastheadBtn:hover {
-  background-color: #f24516 !important;
-}
-
-.mastheadBtn:focus {
-  outline:none !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
-.textWhite75 {
-  color: rgba(255, 255, 255, 0.75);
-}
-
 .scrollToTop{
   background-color: #444444 !important;
   height:55px;
@@ -30,6 +6,7 @@
   position: fixed;
   bottom: 15px;
   right: 15px;
+  border:none;
 }
 
 .scrollToTop:hover {

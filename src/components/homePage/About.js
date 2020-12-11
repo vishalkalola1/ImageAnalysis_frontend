@@ -1,15 +1,16 @@
 import React from "react";
 import styles from "../../../styles/components/About.module.css";
+import { scrollTo } from '../../utils/scroller';
 
 export default function About() {
   return (
-    <section className={`${styles.pageSection}`} id="about">
+    <section className={`pageSection`} id="about">
       <div className="container">
-        <div className="row justify-content-center">
-          <div className="col-lg-8 text-center">
+        <div className="row">
+          <div className="offset-lg-1 col-lg-10 text-center">
             <h2 className="text-white mt-0">We've got what you need!</h2>
             <hr className="divider light my-4" />
-            <p className={`${styles.textWhite50} mb-4`}>
+            <p className={`textWhite75 mb-4 ${styles.aboutPara}`}>
               Image processing is a cool thing in today’s date in technology.
               But have you ever thought of implementing it to level up your
               branding game and creating best marketing strategies? Text
@@ -26,12 +27,12 @@ export default function About() {
               Voila! then, the brands use our reports from the tool for
               optimizing their marketing strategies.
             </p>
-            <a
-              className="btn btn-light btn-xl js-scroll-trigger"
-              href="#services"
+            <button
+              className="btn btn-xl js-scroll-trigger btnSecondary"
+              onClick={() => scrollTo('how-it-works')}
             >
               How?
-            </a>
+            </button>
           </div>
         </div>
       </div>
