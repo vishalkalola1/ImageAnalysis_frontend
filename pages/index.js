@@ -11,8 +11,10 @@ import Team from "../src/components/homePage/Team";
 import Demo from "../src/components/homePage/Demo";
 import Contact from "../src/components/homePage/Contact";
 import Footer from "../src/components/Footer";
+import { useTranslation } from 'react-i18next';
 
 export default function Home() {
+  const { t } = useTranslation();
   return (
     <>
       <Head>
@@ -22,8 +24,8 @@ export default function Home() {
       <Navbar />
       <MasterHead
         title={
-          <h1 className={`text-uppercase text-white`}>
-            UNDERSTAND <br /> your consumers
+          <h1 className={`text-uppercase text-white ${styles.bannerTitle}`}>
+            {t("UNDERSTAND")} <br /> {t("your consumers")}
           </h1>
         }
         subtitle={

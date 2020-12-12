@@ -1,6 +1,11 @@
 .navbar {
-  padding-top:15px;
-  padding-bottom:15px;
+  height:5rem;
+}
+
+@media (max-width: 992px) {
+  .navbar{
+    height:auto;
+  }
 }
 
 .navBrand{
@@ -13,4 +18,14 @@
 
 .navLink.active{
   border-bottom: 1px solid #FFFFFF;
+}
+
+.flag:focus{
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.dropdownItem:focus{
+  outline: none;
+  box-shadow: none;
 }

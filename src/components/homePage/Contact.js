@@ -11,15 +11,15 @@ export default function Contact() {
                     <div className="col-lg-5 col-md-6 d-flex flex-column justify-content-center">
                         <div className="d-flex flex-column flex-md-row justify-content-center justify-content-md-start align-items-center">
                             <FaMapMarkerAlt size="1.5rem" className={`${styles.icon} mb-2 mb-md-auto`} />
-                            <span className="ml-2">14-16 Rue Voltaire, 94270 Le Kremlin-Bicêtre, France</span>
+                            <span className="ml-2 text-center text-md-left">14-16 Rue Voltaire, 94270 Le Kremlin-Bicêtre, France</span>
                         </div>
                         <div className="d-flex flex-column flex-md-row justify-content-center justify-content-md-start align-items-center mt-3 mt-md-5">
                             <FaPhone size="1.5rem" className={`${styles.icon} mb-2 mb-md-auto`} />
-                            <span className="ml-2">+33 1 44 08 01 01</span>
+                            <span className="ml-2 text-center text-md-left">+33 1 44 08 01 01</span>
                         </div>
                         <div className="d-flex flex-column flex-md-row justify-content-center justify-content-md-start align-items-center mt-3 mt-md-5">
                             <FaEnvelope size="1.5rem" className={`${styles.icon} mb-2 mb-md-auto`} />
-                            <span className="ml-2">contact.stalkmarket@gmail.com</span>
+                            <span className="ml-2 text-center text-md-left">contact.stalkmarket@gmail.com</span>
                         </div>
                     </div>
                     <div className="col-lg-7 col-md-6 mt-5 mt-md-auto">

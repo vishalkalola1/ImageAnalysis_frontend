@@ -6,7 +6,7 @@ import Link from 'next/link';
 export default function Team() {
     return (
         <section className={`pageSection bg-light`} id="team">
-            <div className="container-fluid mx-5">
+            <div className="container container-md-fluid mx-0 mx-md-5">
                 <h2 className="text-center w-100">Our amazing team</h2>
                 <hr className={`mb-5 titleBottom`} />
                 <div className="row">

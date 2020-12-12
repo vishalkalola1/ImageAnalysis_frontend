@@ -1,3 +1,12 @@
+.bannerTitle{
+  font-size: 0.8rem;
+  color:red;
+}
+@media (max-width: 360px) {
+  .bannerTitle{
+    font-size: 2rem !important;
+  }
+}
 .subTitle{
   font-size: 1.5rem;
 }

@@ -10,10 +10,14 @@
   },
   "dependencies": {
     "bootstrap": "^4.5.3",
+    "i18next": "^19.8.4",
+    "i18next-browser-languagedetector": "^6.0.1",
+    "i18next-http-backend": "^1.0.21",
     "next": "10.0.3",
     "react": "17.0.1",
     "react-bootstrap": "^1.4.0",
     "react-dom": "17.0.1",
+    "react-i18next": "^11.8.3",
     "react-icons": "^4.1.0",
     "react-scroll": "^1.8.1"
   }
