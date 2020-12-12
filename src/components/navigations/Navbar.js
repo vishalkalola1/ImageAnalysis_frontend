@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
+import PropTypes from 'prop-types'
 import Nav from "react-bootstrap/Nav";
 import { Navbar as BtNavbar, Dropdown, ButtonGroup, Button } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import styles from "../../../styles/components/Navbar.module.css";
-import { useTranslation } from 'react-i18next';
+import { i18n, withTranslation } from '../../../i18n';
 import {
   Events,
   scrollSpy,
@@ -11,11 +12,13 @@ import {
 import { scrollTo, scrollToTop } from '../../utils/scroller';
 import { flags } from '../../utils/data';
 
-export default function Navbar() {
+function Navbar(props) {
   const [scroll, setScroll] = useState(false);
-  const [lang, setLang] = useState('US');
-  const { t, i18n } = useTranslation();
+  const [currentLang] = useState(props.currentLang);
+
+
   useEffect(() => {
+
     Events.scrollEvent.register("begin", function (to, element) {
       console.log("begin", arguments);
     });
@@ -40,7 +43,6 @@ export default function Navbar() {
   });
 
   function handleLanguage(lang) {
-    setLang(lang);
     i18n.changeLanguage(lang);
   }
 
@@ -57,30 +59,11 @@ export default function Navbar() {
           background: scroll ? "#FFFFFF" : "#222"
         }}
       >
+        {console.log(props.currentLang)}
         <Container>
           <BtNavbar.Brand className={styles.navBrand} onClick={() => scrollToTop()}>StalkMarket</BtNavbar.Brand>
 
-          <Dropdown as={ButtonGroup} size="sm">
-            <Button variant="dark" className={styles.flag}><img src={flags[lang]} width={20} height={14} /></Button>
-            <Dropdown.Toggle split variant="dark" id="dropdown-basic" className={styles.flag} />
-            <Dropdown.Menu>
-              <Dropdown.Item onClick={() => handleLanguage('US')} className={`d-flex align-items-center ${styles.dropdownItem}`} active={lang === 'US' ? true : false}>
-                <img src={flags.US} width={20} height={14} className="mr-2" /> EN
-              </Dropdown.Item>
-              <Dropdown.Item onClick={() => handleLanguage('UK')} className={`d-flex align-items-center ${styles.dropdownItem}`} active={lang === 'GB' ? true : false}>
-                <img src={flags.UK} width={20} height={14} className="mr-2" /> EN
-              </Dropdown.Item>
-              <Dropdown.Item onClick={() => handleLanguage('FR')} className={`d-flex align-items-center ${styles.dropdownItem}`} active={lang === 'FR' ? true : false}>
-                <img src={flags.FR} width={20} height={14} className="mr-2" /> FR
-              </Dropdown.Item>
-              <Dropdown.Item onClick={() => handleLanguage('IN')} className={`d-flex align-items-center ${styles.dropdownItem}`} active={lang === 'IN' ? true : false}>
-                <img src={flags.IN} width={20} height={14} className="mr-2" /> IN
-              </Dropdown.Item>
-              <Dropdown.Item onClick={() => handleLanguage('NP')} className={`d-flex align-items-center ${styles.dropdownItem}`} active={lang === 'NP' ? true : false}>
-                <img src={flags.NP} width={20} height={14} className="mr-2" /> NP
-              </Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
+
 
           <BtNavbar.Toggle aria-controls="basic-navbar-nav" className="ml-auto" />
 
@@ -106,8 +89,33 @@ export default function Navbar() {
               </Nav.Link>
             </Nav>
           </BtNavbar.Collapse>
+
+          <Dropdown as={ButtonGroup} size="sm" className="ml-3">
+            <Button variant="dark" className={styles.flag}><img src={flags[currentLang]} width={20} height={14} /></Button>
+            <Dropdown.Toggle split variant="dark" id="dropdown-basic" className={styles.flag} />
+            <Dropdown.Menu>
+              <Dropdown.Item onClick={() => handleLanguage('en')} className={`d-flex align-items-center ${styles.dropdownItem}`} active={i18n.translator.language === 'en' ? true : false}>
+                <img src={flags.en} width={20} height={14} className="mr-2" /> EN
+              </Dropdown.Item>
+              <Dropdown.Item onClick={() => handleLanguage('fr')} className={`d-flex align-items-center ${styles.dropdownItem}`} active={i18n.translator.language === 'fr' ? true : false}>
+                <img src={flags.fr} width={20} height={14} className="mr-2" /> FR
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+
         </Container>
       </BtNavbar>
     </>
   );
 }
+
+Navbar.getInitialProps = async () => ({
+  namespacesRequired: ['common', 'homepage'],
+  currentLang: i18n.translator.language
+});
+
+Navbar.propTypes = {
+  t: PropTypes.func.isRequired,
+}
+
+export default withTranslation('homepage')(Navbar);

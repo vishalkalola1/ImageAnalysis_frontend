@@ -1,7 +1,7 @@
 export const flags = {
-    US: '/images/flags/us.png',
-    UK: '/images/flags/gb.png',
-    NP: '/images/flags/np.png',
-    IN: '/images/flags/in.png',
-    FR: '/images/flags/fr.png',
+    en: '/static/images/flags/us.png',
+    gb: '/static/images/flags/gb.png',
+    np: '/static/images/flags/np.png',
+    in: '/static/images/flags/in.png',
+    fr: '/static/images/flags/fr.png',
 }

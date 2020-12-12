@@ -12,7 +12,7 @@ export default function Team() {
                 <div className="row">
                     <div className="col-lg-4 col-md-6 text-center">
                         <div className="mx-auto">
-                            <img src="/images/avatar.png" className="rounded-circle" alt="Sample avatar" />
+                            <img src="/static/images/avatar.png" className="rounded-circle" alt="Sample avatar" />
                         </div>
                         <h5 className="font-weight-bold mt-4 mb-3">Bibek Lama</h5>
                         <p className="text-uppercase blue-text"><strong>FullStack Developer</strong></p>
@@ -34,7 +34,7 @@ export default function Team() {
                     </div>
                     <div className="col-lg-4 col-md-6 mt-4 mt-md-0 text-center">
                         <div className="mx-auto">
-                            <img src="/images/avatar.png" className="rounded-circle " alt="Sample avatar" />
+                            <img src="/static/images/avatar.png" className="rounded-circle " alt="Sample avatar" />
                         </div>
                         <h5 className="font-weight-bold mt-4 mb-3">Gaurav Nepal</h5>
                         <p className="text-uppercase blue-text"><strong>Data Engineer</strong></p>
@@ -56,7 +56,7 @@ export default function Team() {
                     </div>
                     <div className="col-lg-4 col-md-6 mt-4 mt-md-0 text-center">
                         <div className="mx-auto">
-                            <img src="/images/avatar.png" className="rounded-circle " alt="Sample avatar" />
+                            <img src="/static/images/avatar.png" className="rounded-circle " alt="Sample avatar" />
                         </div>
                         <h5 className="font-weight-bold mt-4 mb-3">Vishal KALOLA</h5>
                         <p className="text-uppercase blue-text"><strong>Lead FullStack developer</strong></p>

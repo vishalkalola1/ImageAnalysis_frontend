@@ -1,4 +1,5 @@
 import Head from "next/head";
+import PropTypes from 'prop-types';
 import About from "../src/components/homePage/About";
 import MasterHead from "../src/components/homePage/MasterHead";
 import Navbar from "../src/components/navigations/Navbar";
@@ -11,10 +12,10 @@ import Team from "../src/components/homePage/Team";
 import Demo from "../src/components/homePage/Demo";
 import Contact from "../src/components/homePage/Contact";
 import Footer from "../src/components/Footer";
-import { useTranslation } from 'react-i18next';
+import { withTranslation } from '../i18n';
 
-export default function Home() {
-  const { t } = useTranslation();
+function Home(props) {
+  const { t } = props;
   return (
     <>
       <Head>
@@ -25,7 +26,7 @@ export default function Home() {
       <MasterHead
         title={
           <h1 className={`text-uppercase text-white ${styles.bannerTitle}`}>
-            {t("UNDERSTAND")} <br /> {t("your consumers")}
+            {t("understand")} <br /> {t("your consumers")}
           </h1>
         }
         subtitle={
@@ -35,7 +36,7 @@ export default function Home() {
             today!.
           </p>
         }
-        bgimage="/images/background.jpg"
+        bgimage="/static/images/background.jpg"
         buttons={
           <button
             className={`btn text-light js-scroll-trigger btnPrimary`}
@@ -60,3 +61,13 @@ export default function Home() {
     </>
   );
 }
+
+Home.getInitialProps = async () => ({
+  namespacesRequired: ['common', 'homepage'],
+});
+
+Home.propTypes = {
+  t: PropTypes.func.isRequired,
+}
+
+export default withTranslation('homepage')(Home);
