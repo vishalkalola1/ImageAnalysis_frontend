@@ -14,7 +14,6 @@ import { flags } from '../../utils/data';
 
 function Navbar(props) {
   const [scroll, setScroll] = useState(false);
-  const [currentLang] = useState(props.currentLang);
 
 
   useEffect(() => {
@@ -63,8 +62,19 @@ function Navbar(props) {
         <Container>
           <BtNavbar.Brand className={styles.navBrand} onClick={() => scrollToTop()}>StalkMarket</BtNavbar.Brand>
 
-
-
+          <Dropdown as={ButtonGroup} size="sm" className="d-block d-lg-none">
+            <Dropdown.Toggle variant="dark" id="dropdown-basic" className={styles.flag}>
+              <img src={flags[props.i18n.language]} width={20} height={14} />
+            </Dropdown.Toggle>
+            <Dropdown.Menu className={`${styles.flagMenu}`}>
+              <Dropdown.Item onClick={() => handleLanguage('en')} className={`d-flex align-items-center ${styles.dropdownItem}`} active={i18n.translator.language === 'en' ? true : false}>
+                <img src={flags.en} width={20} height={14} className="mr-2" /> EN
+              </Dropdown.Item>
+              <Dropdown.Item onClick={() => handleLanguage('fr')} className={`d-flex align-items-center ${styles.dropdownItem}`} active={i18n.translator.language === 'fr' ? true : false}>
+                <img src={flags.fr} width={20} height={14} className="mr-2" /> FR
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
           <BtNavbar.Toggle aria-controls="basic-navbar-nav" className="ml-auto" />
 
           <BtNavbar.Collapse id="basic-navbar-nav">
@@ -90,10 +100,11 @@ function Navbar(props) {
             </Nav>
           </BtNavbar.Collapse>
 
-          <Dropdown as={ButtonGroup} size="sm" className="ml-3">
-            <Button variant="dark" className={styles.flag}><img src={flags[currentLang]} width={20} height={14} /></Button>
-            <Dropdown.Toggle split variant="dark" id="dropdown-basic" className={styles.flag} />
-            <Dropdown.Menu>
+          <Dropdown as={ButtonGroup} size="sm" className="d-none d-lg-block">
+            <Dropdown.Toggle variant="dark" id="dropdown-basic" className={styles.flag}>
+              <img src={flags[props.i18n.language]} width={20} height={14} />
+            </Dropdown.Toggle>
+            <Dropdown.Menu className={`${styles.flagMenu}`}>
               <Dropdown.Item onClick={() => handleLanguage('en')} className={`d-flex align-items-center ${styles.dropdownItem}`} active={i18n.translator.language === 'en' ? true : false}>
                 <img src={flags.en} width={20} height={14} className="mr-2" /> EN
               </Dropdown.Item>
@@ -110,8 +121,7 @@ function Navbar(props) {
 }
 
 Navbar.getInitialProps = async () => ({
-  namespacesRequired: ['common', 'homepage'],
-  currentLang: i18n.translator.language
+  namespacesRequired: ['common', 'homepage']
 });
 
 Navbar.propTypes = {

@@ -11,7 +11,7 @@ export function scrollTo(to) {
     scroller.scrollTo(to, {
         duration: 800,
         delay: 0,
-        spy: true,
+        spy: false,
         offset: 0,
         smooth: 'easeInOutQuart',
     })

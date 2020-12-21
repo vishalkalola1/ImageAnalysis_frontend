@@ -20,12 +20,26 @@
   border-bottom: 1px solid #FFFFFF;
 }
 
+.flag{
+  border: none !important;
+  background-color: transparent !important;
+}
+
 .flag:focus{
   outline: none !important;
   box-shadow: none !important;
+  background-color: transparent !important;
+}
+
+.flagMenu{
+  right: 0px !important;
 }
 
 .dropdownItem:focus{
   outline: none;
   box-shadow: none;
+}
+
+.dropdownItem.active{
+  background-color: #ddd !important;
 }
