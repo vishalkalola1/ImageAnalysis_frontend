@@ -50,7 +50,7 @@ export default function Team() {
 const fetcher = url => fetch(url).then(r => r.json())
 
 function useTeams() {
-    const { data, error } = useSWR(`http://imageanalysisbackend.herokuapp.com/developerdetails`, fetcher);
+    const { data, error } = useSWR(`https://imageanalysisbackend.herokuapp.com/developerdetails`, fetcher);
     return {
         teams: data,
         isLoading: !error && !data,
