@@ -92,7 +92,7 @@ function Navbar(props) {
           <BtNavbar.Brand className={styles.navBrand} onClick={() => handleMenu()}>StalkMarket</BtNavbar.Brand>
 
           <Dropdown as={ButtonGroup} size="sm" className="d-block d-lg-none">
-            <Dropdown.Toggle variant="dark" id="dropdown-basic" className={styles.flag}>
+            <Dropdown.Toggle variant={scroll ? 'light' : 'dark'} id="dropdown-basic" className={styles.flag}>
               <img src={flags[props.i18n.language]} width={20} height={14} />
             </Dropdown.Toggle>
             <Dropdown.Menu className={`${styles.flagMenu}`}>
