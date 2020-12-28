@@ -5,6 +5,7 @@ import { Navbar as BtNavbar, Dropdown, ButtonGroup, Button } from "react-bootstr
 import Container from "react-bootstrap/Container";
 import styles from "../../../styles/components/Navbar.module.css";
 import { i18n, withTranslation } from '../../../i18n';
+import { useRouter } from 'next/router';
 import {
   Events,
   scrollSpy,
@@ -14,7 +15,8 @@ import { flags } from '../../utils/data';
 
 function Navbar(props) {
   const [scroll, setScroll] = useState(false);
-
+  const [navbarOpen, setNavbarOpen] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
 
@@ -45,6 +47,33 @@ function Navbar(props) {
     i18n.changeLanguage(lang);
   }
 
+  async function handleMenu(to = null) {
+    setNavbarOpen(false);
+    if (router.pathname !== '/') {
+      await router.push('/');
+      await setTimeout(
+        () => {
+          if (to === null) {
+            scrollToTop();
+          } else {
+            scrollTo(to);
+          }
+        },
+        100
+      );
+    } else {
+      if (to === null) {
+        scrollToTop();
+      } else {
+        scrollTo(to);
+      }
+    }
+  }
+
+  function toggleNavbar() {
+    setNavbarOpen(!navbarOpen);
+  }
+
   return (
     <>
       <BtNavbar
@@ -57,10 +86,10 @@ function Navbar(props) {
           boxShadow: scroll ? "0px 0px 5px rgba(0,0,0,0.5)" : "none",
           background: scroll ? "#FFFFFF" : "#222"
         }}
+        expanded={navbarOpen}
       >
-        {console.log(props.currentLang)}
         <Container>
-          <BtNavbar.Brand className={styles.navBrand} onClick={() => scrollToTop()}>StalkMarket</BtNavbar.Brand>
+          <BtNavbar.Brand className={styles.navBrand} onClick={() => handleMenu()}>StalkMarket</BtNavbar.Brand>
 
           <Dropdown as={ButtonGroup} size="sm" className="d-block d-lg-none">
             <Dropdown.Toggle variant="dark" id="dropdown-basic" className={styles.flag}>
@@ -75,23 +104,23 @@ function Navbar(props) {
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
-          <BtNavbar.Toggle aria-controls="basic-navbar-nav" className="ml-auto" />
+          <BtNavbar.Toggle aria-controls="basic-navbar-nav" onClick={() => toggleNavbar()} className="ml-auto" />
 
           <BtNavbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto">
-              <Nav.Link className={styles.navLink} onClick={() => scrollTo('about')}>
+              <Nav.Link className={styles.navLink} onClick={() => handleMenu('about')}>
                 About
               </Nav.Link>
-              <Nav.Link className={`ml-0 ml-lg-4 ${styles.navLink}`} onClick={() => scrollTo('how-it-works')}>
+              <Nav.Link className={`ml-0 ml-lg-4 ${styles.navLink}`} onClick={() => handleMenu('how-it-works')}>
                 How it works?
               </Nav.Link>
-              <Nav.Link className={`ml-0 ml-lg-4 ${styles.navLink}`} onClick={() => scrollTo('team')}>
+              <Nav.Link className={`ml-0 ml-lg-4 ${styles.navLink}`} onClick={() => handleMenu('team')}>
                 Our Team
               </Nav.Link>
-              <Nav.Link className={`ml-0 ml-lg-4 ${styles.navLink}`} onClick={() => scrollTo('demo')}>
+              <Nav.Link className={`ml-0 ml-lg-4 ${styles.navLink}`} onClick={() => handleMenu('demo')}>
                 Demo
               </Nav.Link>
-              <Nav.Link className={`ml-0 ml-lg-4 ${styles.navLink}`} onClick={() => scrollTo('contact')}>
+              <Nav.Link className={`ml-0 ml-lg-4 ${styles.navLink}`} onClick={() => handleMenu('contact')}>
                 Contact
               </Nav.Link>
               <Nav.Link href="/login" className={`ml-0 ml-lg-4 ${styles.navLink}`}>
