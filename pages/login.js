@@ -37,7 +37,7 @@ export default function Login(props) {
                         </label>
                     </div>
                     <p className={`mb-1 text-white link`}>Not a member? <Link href="/register">Register</Link></p>
-                    <p className={`text-white link`}>Copyright © 2020 - <Link href="/">Stalk Market</Link></p>
+                    <p className={`text-white link`}>Copyright © 2021 - <Link href="/">Stalk Market</Link></p>
                 </div>
             </div>
         </>

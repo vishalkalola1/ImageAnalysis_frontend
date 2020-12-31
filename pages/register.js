@@ -71,7 +71,7 @@ export default function Register(props) {
                                 <button className={`w-100 btn  btn-light authBtn`} type="submit">REGISTER</button>
                             </Col>
                             <Col lg={{ span: 12, order: 9 }} className="mt-3">
-                                <p className={`text-white link  border-top pt-4 w-100 text-center`}>Copyright © 2020 - <Link href="/">Stalk Market</Link></p>
+                                <p className={`text-white link  border-top pt-4 w-100 text-center`}>Copyright © 2021 - <Link href="/">Stalk Market</Link></p>
                             </Col>
                         </Row>
 
