@@ -1,22 +1,48 @@
 import React, { useState } from "react";
-import { Form, Col, Button } from 'react-bootstrap';
+import { Form, Col, Button, Spinner } from 'react-bootstrap';
 import { FaMapMarkerAlt, FaPhone, FaEnvelope } from "react-icons/fa";
 import styles from '../../../styles/components/Contact.module.css';
 
-export default function Contact() {
+
+function Contact(props) {
     const [validated, setValidated] = useState(false);
     const firstName = useFormInput('');
     const lastName = useFormInput('');
     const email = useFormInput('');
     const message = useFormInput('');
+    const [loading, setLoading] = useState(false);
+    const [data, setData] = useState(null);
+    const [error, setError] = useState(null);
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
+        event.preventDefault();
         const form = event.currentTarget;
         if (form.checkValidity() === false) {
-            event.preventDefault();
             event.stopPropagation();
         }
         setValidated(true);
+        setLoading(true);
+        const body = {
+            firstname: firstName,
+            lastname: lastName,
+            email,
+            details: message
+        };
+        try {
+            const response = await fetch('https://imageanalysisbackend.herokuapp.com/contactus', {
+                method: 'post',
+                body: JSON.stringify(body),
+                headers: {
+                    'content-type': 'application/json'
+                }
+            });
+            let res = await response.json();
+            await setData(res);
+            await setLoading(false);
+        } catch (err) {
+            await setError(err);
+            await setLoading(false);
+        }
     };
 
     return (
@@ -71,7 +97,12 @@ export default function Contact() {
                                     </Form.Control.Feedback>
                                 </Form.Group>
                             </Form.Row>
-                            <div className="d-flex justify-content-end mt-3">
+                            <div className="d-flex justify-content-end align-items-center mt-3">
+                                {!loading && data && !error && <span className="mr-2">{data.message}</span>}
+                                {!loading && error && !data && <span className="mr-2">{error.message}</span>}
+                                {loading && !data && <Spinner animation="border" role="status" className="mr-2">
+                                    <span className="sr-only">Loading...</span>
+                                </Spinner>}
                                 <Button variant="primary" size="lg" type="submit">Submit</Button>
                             </div>
                         </Form>
@@ -82,15 +113,16 @@ export default function Contact() {
     );
 }
 
-function useFormInput(initialValue, options) {
+function useFormInput(initialValue) {
     const [value, setValue] = useState(initialValue);
-
     function onChange(e) {
         setValue(e.target.value);
     }
 
     return {
         value,
-        onChange
+        onChange: (e) => onChange(e)
     }
 }
+
+export default Contact;
