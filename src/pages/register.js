@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { Form, Container, Row, Col, InputGroup } from 'react-bootstrap';
@@ -6,6 +6,7 @@ import styles from "../styles/Register.module.css";
 import { AiOutlineUser, AiOutlineLock, AiOutlineMail, AiOutlineUserAdd } from 'react-icons/ai';
 import { RiShieldUserLine } from 'react-icons/ri';
 import { FiArrowLeftCircle } from 'react-icons/fi';
+import { scrollTo } from '../utils/scroller';
 
 export default function Register(props) {
     const [validated, setValidated] = useState(false);
@@ -17,6 +18,11 @@ export default function Register(props) {
         }
         setValidated(true);
     };
+
+    useEffect(() => {
+        scrollTo('register')
+    }, []);
+
     return (
         <>
             <Head>
@@ -57,7 +63,7 @@ export default function Register(props) {
                                 </span>
                             </div>
                         </Col>
-                        <Col className="d-flex justify-content-center align-items-center mt-5 mt-md-0" md={6}>
+                        <Col className="d-flex justify-content-center align-items-center mt-5 mt-md-0" md={6} id="register">
                             <div className={`card ${styles.formCard}`}>
                                 <Form noValidate validated={validated} onSubmit={handleSubmit}>
                                     <h2 className="text-center">Register Now!</h2>

@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Head from "next/head";
 import Link from 'next/link';
 import styles from "../styles/Login.module.css";
 import { Form, Container, Row, Col, InputGroup } from 'react-bootstrap'
 import { AiOutlineUser, AiOutlineLock, AiOutlineLogin } from 'react-icons/ai';
 import { FiArrowLeftCircle } from 'react-icons/fi';
+import { scrollTo } from '../utils/scroller';
 
 export default function Login(props) {
     const [validated, setValidated] = useState(false);
@@ -16,6 +17,11 @@ export default function Login(props) {
         }
         setValidated(true);
     };
+
+    useEffect(() => {
+        scrollTo('login')
+    }, []);
+
     return (
         <>
             <Head>
@@ -57,7 +63,7 @@ export default function Login(props) {
                                 </span>
                             </div>
                         </Col>
-                        <Col className="d-flex justify-content-center align-items-center mt-5 mt-md-0" md={6}>
+                        <Col className="d-flex justify-content-center align-items-center mt-5 mt-md-0" md={6} id="login">
                             <div className={`card ${styles.formCard}`}>
                                 <Form noValidate validated={validated} onSubmit={handleSubmit}>
                                     <h2 className="text-center">Login!</h2>
