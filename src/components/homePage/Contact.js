@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Form, Col, Button, Spinner } from 'react-bootstrap';
 import { FaMapMarkerAlt, FaPhone, FaEnvelope } from "react-icons/fa";
-import styles from '../../../styles/components/Contact.module.css';
+import styles from '../../styles/components/Contact.module.css';
 
 
 function Contact(props) {

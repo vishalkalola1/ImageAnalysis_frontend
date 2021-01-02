@@ -1,18 +1,18 @@
 import Head from "next/head";
 import PropTypes from 'prop-types';
-import About from "../src/components/homePage/About";
-import MasterHead from "../src/components/homePage/MasterHead";
-import Navbar from "../src/components/navigations/Navbar";
+import About from "../components/homePage/About";
+import MasterHead from "../components/homePage/MasterHead";
+import Navbar from "../components/navigations/Navbar";
 import styles from "../styles/Home.module.css";
-import { scrollToTop, scrollTo } from '../src/utils/scroller';
+import { scrollToTop, scrollTo } from '../utils/scroller';
 import Button from 'react-bootstrap/Button';
 import { IoChevronUpOutline } from "react-icons/io5";
-import HowItWorks from "../src/components/homePage/HowItWorks";
-import Team from "../src/components/homePage/Team";
-import Demo from "../src/components/homePage/Demo";
-import Contact from "../src/components/homePage/Contact";
-import Footer from "../src/components/Footer";
-import { withTranslation } from '../i18n';
+import HowItWorks from "../components/homePage/HowItWorks";
+import Team from "../components/homePage/Team";
+import Demo from "../components/homePage/Demo";
+import Contact from "../components/homePage/Contact";
+import Footer from "../components/Footer";
+import { withTranslation } from '../../i18n';
 
 function Home(props) {
   const { t } = props;

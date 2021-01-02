@@ -4,11 +4,11 @@ import Head from "next/head";
 import Link from 'next/link';
 import styles from "../styles/components/Team.module.css";
 import useSWR from 'swr';
-import MySkelton from '../src/components/MySkelton';
+import MySkelton from '../components/MySkelton';
 import Skeleton from "react-loading-skeleton";
-import Navbar from "../src/components/navigations/Navbar";
+import Navbar from "../components/navigations/Navbar";
 import { FaLinkedin, FaGithub, FaStackOverflow, FaTwitter, FaLinkedinIn } from "react-icons/fa";
-import { withTranslation } from '../i18n';
+import { withTranslation } from '../../i18n';
 
 function Teams(props) {
     const { teams, isLoading, isError } = useTeams();

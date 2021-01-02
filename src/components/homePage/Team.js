@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../../styles/components/Team.module.css";
+import styles from "../../styles/components/Team.module.css";
 import { FaLinkedin, FaGithub, FaStackOverflow, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 import Link from 'next/link';
 import useSWR from 'swr';

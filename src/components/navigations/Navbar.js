@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Nav from "react-bootstrap/Nav";
 import { Navbar as BtNavbar, Dropdown, ButtonGroup, Button } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
-import styles from "../../../styles/components/Navbar.module.css";
+import styles from "../../styles/components/Navbar.module.css";
 import { i18n, withTranslation } from '../../../i18n';
 import { useRouter } from 'next/router';
 import {

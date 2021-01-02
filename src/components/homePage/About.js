@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../../styles/components/About.module.css";
+import styles from "../../styles/components/About.module.css";
 import { scrollTo } from '../../utils/scroller';
 
 export default function About() {

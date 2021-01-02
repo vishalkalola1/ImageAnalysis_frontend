@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../../styles/components/MasterHead.module.css";
+import styles from "../../styles/components/MasterHead.module.css";
 
 export default function MasterHead(props) {
   const { title, subtitle, bgimage, buttons } = props;

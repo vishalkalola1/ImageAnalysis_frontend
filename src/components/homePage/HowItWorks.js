@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../../styles/components/HowItWorks.module.css";
+import styles from "../../styles/components/HowItWorks.module.css";
 import { FaGem, FaLaptopCode, FaGlobe, FaHeart } from "react-icons/fa";
 
 export default function HowItWorks() {
