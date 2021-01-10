@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Form, Col, Button, Spinner } from 'react-bootstrap';
 import { FaMapMarkerAlt, FaPhone, FaEnvelope } from "react-icons/fa";
 import styles from '../../styles/components/Contact.module.css';
-
+import { contactusapi, useFormInput } from '../../Services/api';
 
 function Contact(props) {
     const [validated, setValidated] = useState(false);
@@ -23,26 +23,25 @@ function Contact(props) {
         setValidated(true);
         setLoading(true);
         const body = {
-            firstname: firstName,
-            lastname: lastName,
-            email,
-            details: message
+            firstname: firstName.value,
+            lastname: lastName.value,
+            email: email.value,
+            details: message.value
         };
-        try {
-            const response = await fetch('https://imageanalysisbackend.herokuapp.com/contactus', {
-                method: 'post',
-                body: JSON.stringify(body),
-                headers: {
-                    'content-type': 'application/json'
-                }
-            });
-            let res = await response.json();
-            await setData(res);
-            await setLoading(false);
-        } catch (err) {
-            await setError(err);
-            await setLoading(false);
-        }
+        await contactusapi(body).then(response => {
+            if(response.ok){
+                return response.json()
+            }else{
+                debugger;
+                throw response.json();
+            }
+        }).then(data => {
+            setData(data);
+            setLoading(false);
+        }).catch(function (error){
+            setError(error);
+            setLoading(false);
+        })
     };
 
     return (
@@ -112,17 +111,4 @@ function Contact(props) {
         </section>
     );
 }
-
-function useFormInput(initialValue) {
-    const [value, setValue] = useState(initialValue);
-    function onChange(e) {
-        setValue(e.target.value);
-    }
-
-    return {
-        value,
-        onChange: (e) => onChange(e)
-    }
-}
-
 export default Contact;

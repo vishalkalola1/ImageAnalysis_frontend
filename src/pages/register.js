@@ -7,16 +7,52 @@ import { AiOutlineUser, AiOutlineLock, AiOutlineMail, AiOutlineUserAdd } from 'r
 import { RiShieldUserLine } from 'react-icons/ri';
 import { FiArrowLeftCircle } from 'react-icons/fi';
 import { scrollTo } from '../utils/scroller';
+import { registerapi, useFormInput } from '../Services/api';
 
 export default function Register(props) {
     const [validated, setValidated] = useState(false);
-    const handleSubmit = (event) => {
+    const [loading, setLoading] = useState(false);
+    const [data, setData] = useState(null);
+    const [error, setError] = useState(null);
+
+    const username = useFormInput('');
+    const firstname = useFormInput('');
+    const lastname = useFormInput('');
+    const password = useFormInput('');
+    const email = useFormInput('');
+    const c_password = useFormInput('');
+
+
+    const handleSubmit = async (event) => {
         const form = event.currentTarget;
         if (form.checkValidity() === false) {
             event.preventDefault();
             event.stopPropagation();
         }
+        
+        debugger;
+
+        if (password.value !== c_password.value){
+            alert("Password is not match with confirm password");
+            return
+        }
         setValidated(true);
+        setLoading(true);
+        const body = {
+            firstname: firstname.value,
+            lastname: lastname.value,
+            email: email.value,
+            password: password.value,
+            username:username.value
+        };
+        try{
+            const res = await registerapi(body);
+            setData(res);
+            setLoading(false);
+        } catch (err) {
+            setError(err);
+            setLoading(false);
+        }
     };
 
     useEffect(() => {
@@ -73,7 +109,7 @@ export default function Register(props) {
                                                 <InputGroup.Prepend>
                                                     <InputGroup.Text><AiOutlineUser /></InputGroup.Text>
                                                 </InputGroup.Prepend>
-                                                <Form.Control type="text" id="inputFirst" className={styles.input} placeholder="First Name" required />
+                                                <Form.Control {...firstname} type="text" id="inputFirst" className={styles.input} placeholder="First Name" required />
                                                 <Form.Control.Feedback type="invalid">
                                                     First name is required.
                                                 </Form.Control.Feedback>
@@ -86,7 +122,7 @@ export default function Register(props) {
                                                 <InputGroup.Prepend>
                                                     <InputGroup.Text><AiOutlineUser /></InputGroup.Text>
                                                 </InputGroup.Prepend>
-                                                <Form.Control type="text" id="inputLast" className={styles.input} placeholder="Last Name" required />
+                                                <Form.Control {...lastname} type="text" id="inputLast" className={styles.input} placeholder="Last Name" required />
                                                 <Form.Control.Feedback type="invalid">
                                                     Last name is required.
                                                 </Form.Control.Feedback>
@@ -99,7 +135,7 @@ export default function Register(props) {
                                                 <InputGroup.Prepend>
                                                     <InputGroup.Text><RiShieldUserLine /></InputGroup.Text>
                                                 </InputGroup.Prepend>
-                                                <Form.Control type="text" id="inputUsername" className={styles.input} placeholder="Username" required />
+                                                <Form.Control {...username} type="text" id="inputUsername" className={styles.input} placeholder="Username" required />
                                                 <Form.Control.Feedback type="invalid">
                                                     Username is required.
                                                 </Form.Control.Feedback>
@@ -112,7 +148,7 @@ export default function Register(props) {
                                                 <InputGroup.Prepend>
                                                     <InputGroup.Text><AiOutlineMail /></InputGroup.Text>
                                                 </InputGroup.Prepend>
-                                                <Form.Control type="email" id="inputEmail" className={styles.input} placeholder="Email" required />
+                                                <Form.Control {...email} type="email" id="inputEmail" className={styles.input} placeholder="Email" required />
                                                 <Form.Control.Feedback type="invalid">
                                                     Email is required.
                                                 </Form.Control.Feedback>
@@ -125,7 +161,7 @@ export default function Register(props) {
                                                 <InputGroup.Prepend>
                                                     <InputGroup.Text><AiOutlineLock /></InputGroup.Text>
                                                 </InputGroup.Prepend>
-                                                <Form.Control type="password" id="inputPassword" className={styles.input} placeholder="Password" required />
+                                                <Form.Control {...password} type="password" id="inputPassword" className={styles.input} placeholder="Password" required />
                                                 <Form.Control.Feedback type="invalid">
                                                     Password is required.
                                                 </Form.Control.Feedback>
@@ -138,7 +174,7 @@ export default function Register(props) {
                                                 <InputGroup.Prepend>
                                                     <InputGroup.Text><AiOutlineLock /></InputGroup.Text>
                                                 </InputGroup.Prepend>
-                                                <Form.Control type="password" id="inputConfirmPassword" className={styles.input} placeholder="Confirm Password" required />
+                                                <Form.Control {...c_password} type="password" id="inputConfirmPassword" className={styles.input} placeholder="Confirm Password" required />
                                                 <Form.Control.Feedback type="invalid">
                                                     Confirm password is required.
                                                 </Form.Control.Feedback>
@@ -147,10 +183,18 @@ export default function Register(props) {
                                     </Form.Row>
                                     <Form.Row>
                                         <Form.Group as={Col} className="mb-3">
-                                            <button className={`w-100 btn d-flex align-items-center justify-content-center ${styles.button}`} type="submit">
+                                            <div className="d-flex justify-content-end align-items-center mt-3">
+                                                {!loading && data && !error && <span className="mr-2">{data.message}</span>}
+                                                {!loading && error && !data && <span className="mr-2">{error.message}</span>}
+                                                {loading && !data && <Spinner animation="border" role="status" className="mr-2">
+                                                    <span className="sr-only">Loading...</span>
+                                                </Spinner>}
+                                                <button className={`w-100 btn d-flex align-items-center justify-content-center ${styles.button}`} type="submit">
                                                 <AiOutlineUserAdd />
-                                            REGISTER
-                                        </button>
+                                                    REGISTER
+                                                </button>
+                                            </div>
+                                            
                                         </Form.Group>
                                     </Form.Row>
                                     <div className="text-center">
