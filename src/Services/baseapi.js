@@ -1,24 +1,31 @@
+export const baseURL = process.env.BASE_BACKEND_URL
+export const apicall = (url, method, body, query = "") => {
+    return new Promise((resolve, reject) => {
+        fetch(`${baseURL + url}${query !== "" ? '?' + addqueryparams(query) : ''}`, {
+            method: method,
+            body: body ? JSON.stringify(body) : '',
+            headers: {
+                'content-type': 'application/json'
+            }
+        }).then(response => {
+            const res = response.json();
+            if (response.ok) {
+                return res;
+            } else {
+                reject(res.message);
+            }
+        }).then(data => {
+            resolve(data);
+        }).catch(error => {
+            reject(error);
+        })
+    });
+}
 
-export const apicall = async (url, method, body, cb, errorcb) => {
-
-    await fetch(url, {
-        method: method,
-        body: JSON.stringify(body),
-        headers: {
-            'content-type': 'application/json'
-        }
-    }).then(response => {
-        const res = response.json()
-        if (response.ok){
-            return res;
-        }else{
-            throw Error(res.message);
-        }
-    }).then(data => {
-        debugger;
-        cb(data)
-    }).catch(error => {
-        debugger;
-        errorcb(error.response)
-    })
+export const addqueryparams = async (data) => {
+    const queryparams = []
+    for (const key in data) {
+        queryparams.push(key + "=" + data[key])
+    }
+    return queryparams > 0 ? queryparams.join("&") : ""
 }

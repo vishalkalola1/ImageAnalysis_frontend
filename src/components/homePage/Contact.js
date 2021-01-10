@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { Form, Col, Button, Spinner } from 'react-bootstrap';
 import { FaMapMarkerAlt, FaPhone, FaEnvelope } from "react-icons/fa";
 import styles from '../../styles/components/Contact.module.css';
-import { contactusapi, useFormInput } from '../../Services/api';
+import { useFormInput } from '../../hooks/form';
+import { contactusapi } from '../../Services/contactService';
 
 function Contact(props) {
     const [validated, setValidated] = useState(false);
@@ -14,7 +15,7 @@ function Contact(props) {
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
 
-    const handleSubmit = async (event) => {
+    const handleSubmit = (event) => {
         event.preventDefault();
         const form = event.currentTarget;
         if (form.checkValidity() === false) {
@@ -28,17 +29,10 @@ function Contact(props) {
             email: email.value,
             details: message.value
         };
-        await contactusapi(body).then(response => {
-            if(response.ok){
-                return response.json()
-            }else{
-                debugger;
-                throw response.json();
-            }
-        }).then(data => {
-            setData(data);
+        contactusapi(body).then(response => {
+            setData(response);
             setLoading(false);
-        }).catch(function (error){
+        }).catch(function (error) {
             setError(error);
             setLoading(false);
         })
