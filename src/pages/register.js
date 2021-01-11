@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { Form, Container, Row, Col, InputGroup } from 'react-bootstrap';
+import { Form, Container, Row, Col, InputGroup, Spinner } from 'react-bootstrap';
 import styles from "../styles/Register.module.css";
 import { AiOutlineUser, AiOutlineLock, AiOutlineMail, AiOutlineUserAdd } from 'react-icons/ai';
 import { RiShieldUserLine } from 'react-icons/ri';
 import { FiArrowLeftCircle } from 'react-icons/fi';
 import { scrollTo } from '../utils/scroller';
-import { registerapi, useFormInput } from '../Services/api';
+import { registerapi } from '../Services/authService';
+import { useFormInput } from '../hooks/form';
 
 export default function Register(props) {
     const [validated, setValidated] = useState(false);
@@ -24,14 +25,13 @@ export default function Register(props) {
 
 
     const handleSubmit = async (event) => {
+        event.preventDefault();
         const form = event.currentTarget;
         if (form.checkValidity() === false) {
             event.preventDefault();
             event.stopPropagation();
         }
         
-        debugger;
-
         if (password.value !== c_password.value){
             alert("Password is not match with confirm password");
             return
@@ -45,14 +45,13 @@ export default function Register(props) {
             password: password.value,
             username:username.value
         };
-        try{
-            const res = await registerapi(body);
-            setData(res);
+        registerapi(body).then(response => {
+            setData(response);
             setLoading(false);
-        } catch (err) {
-            setError(err);
+        }).catch(function (error) {
+            setError(error);
             setLoading(false);
-        }
+        });
     };
 
     useEffect(() => {
@@ -186,7 +185,7 @@ export default function Register(props) {
                                             <div className="d-flex justify-content-end align-items-center mt-3">
                                                 {!loading && data && !error && <span className="mr-2">{data.message}</span>}
                                                 {!loading && error && !data && <span className="mr-2">{error.message}</span>}
-                                                {loading && !data && <Spinner animation="border" role="status" className="mr-2">
+                                                {loading && <Spinner animation="border" role="status" className="mr-2">
                                                     <span className="sr-only">Loading...</span>
                                                 </Spinner>}
                                                 <button className={`w-100 btn d-flex align-items-center justify-content-center ${styles.button}`} type="submit">

@@ -1,4 +1,5 @@
 export const baseURL = process.env.BASE_BACKEND_URL
+
 export const apicall = (url, method, body, query = "") => {
     return new Promise((resolve, reject) => {
         fetch(`${baseURL + url}${query !== "" ? '?' + addqueryparams(query) : ''}`, {
@@ -7,14 +8,7 @@ export const apicall = (url, method, body, query = "") => {
             headers: {
                 'content-type': 'application/json'
             }
-        }).then(response => {
-            const res = response.json();
-            if (response.ok) {
-                return res;
-            } else {
-                reject(res.message);
-            }
-        }).then(data => {
+        }).then(response => response.json()).then(data => {
             resolve(data);
         }).catch(error => {
             reject(error);

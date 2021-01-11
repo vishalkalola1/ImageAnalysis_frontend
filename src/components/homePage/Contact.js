@@ -30,9 +30,11 @@ function Contact(props) {
             details: message.value
         };
         contactusapi(body).then(response => {
+            debugger;
             setData(response);
             setLoading(false);
         }).catch(function (error) {
+            debugger;
             setError(error);
             setLoading(false);
         })

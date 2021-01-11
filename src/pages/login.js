@@ -6,7 +6,8 @@ import { Form, Container, Row, Col, InputGroup, Spinner } from 'react-bootstrap'
 import { AiOutlineUser, AiOutlineLock, AiOutlineLogin } from 'react-icons/ai';
 import { FiArrowLeftCircle } from 'react-icons/fi';
 import { scrollTo } from '../utils/scroller';
-import { loginapi, useFormInput } from '../Services/api';
+import { useFormInput } from '../hooks/form';
+import { loginapi } from '../Services/authService';
 
 export default function Login(props) {
     const [validated, setValidated] = useState(false);
@@ -17,26 +18,30 @@ export default function Login(props) {
     const username = useFormInput('');
     const password = useFormInput('');
 
-    const handleSubmit = async (event) => {
+    const handleSubmit = (event) => {
+        event.preventDefault();
         const form = event.currentTarget;
+
         if (form.checkValidity() === false) {
             event.preventDefault();
             event.stopPropagation();
         }
         setValidated(true);
         setLoading(true);
+
         const body = {
             username: username.value,
             password: password.value
         };
-        debugger;
-        loginapi(body, (data) => {
+
+        loginapi(body).then(response => {
             debugger;
-            console.log(data)
-        },(error) => {
-            debugger;
-            console.log(error)
-        })
+            setData(response);
+            setLoading(false);
+        }).catch(function (error) {
+            setError(error);
+            setLoading(false);
+        });
     };
 
     useEffect(() => {
@@ -124,13 +129,13 @@ export default function Login(props) {
                                             <div className="d-flex justify-content-end align-items-center mt-3">
                                                 {!loading && data && !error && <span className="mr-2">{data.message}</span>}
                                                 {!loading && error && !data && <span className="mr-2">{error.message}</span>}
-                                                {loading && !data && <Spinner animation="border" role="status" className="mr-2">
+                                                {loading && <Spinner color="#663399" animation="border" role="status" className="mr-2">
                                                     <span className="sr-only">Loading...</span>
                                                 </Spinner>}
                                                 <button className={`w-100 btn d-flex align-items-center justify-content-center ${styles.button}`} type="submit">
                                                     <AiOutlineLogin className="mr-2" />
                                                 LOGIN
-                                                </button>
+                                            </button>
                                             </div>
                                         </Form.Group>
                                     </Form.Row>
