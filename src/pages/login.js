@@ -73,7 +73,7 @@ export default function Login(props) {
                                 Brand Image Processing is more than a just a marketing hype! If you are serious about implementing image analysis to level up your branding game and create the best marketing strategies,you are at the right place.
                                 Andes/StalkMarket makes it accessible and easy.
                             </p>
-                            <span>Sign-up today and get access to:</span>
+                            <span>Sign-in and get access to:</span>
                             <ul>
                                 <li className={styles.bullets} >Text processing and SEO</li>
                                 <li className={styles.bullets} >Insights of how product is consumed by their customers</li>
