@@ -31,7 +31,7 @@ export default function Register(props) {
             event.preventDefault();
             event.stopPropagation();
         }
-        
+
         if (password.value !== c_password.value){
             alert("Password is not match with confirm password");
             return
@@ -46,11 +46,13 @@ export default function Register(props) {
             username:username.value
         };
         registerapi(body).then(response => {
+            setError(null);
+            setLoading(false);
             setData(response);
-            setLoading(false);
         }).catch(function (error) {
-            setError(error);
             setLoading(false);
+            setData(null);
+            setError(error);
         });
     };
 
@@ -78,17 +80,16 @@ export default function Register(props) {
                                 </Link>
                             </div>
                             <p className={styles.heading}>
-                                Image processing is a cool thing in today’s date in technology.
-                                But have you ever thought of implementing it to level up your branding
-                                game and creating best marketing strategies?
+                                Brand Image Processing is more than a just a marketing hype! If you are serious about implementing image analysis to level up your branding game and create the best marketing strategies,you are at the right place.
+                                Andes/StalkMarket makes it accessible and easy.
                             </p>
                             <span>Sign-up today and get access to:</span>
                             <ul>
-                                <li>Text processing and SEO</li>
-                                <li>Insights of how product is consumed by their customers</li>
-                                <li>Reports from the tool for optimizing their marketing strategies.</li>
+                                <li className={styles.bullets} >Text processing and SEO</li>
+                                <li className={styles.bullets} >Insights of how product is consumed by their customers</li>
+                                <li className={styles.bullets} >Reports from the tool for optimizing their marketing strategies.</li>
                             </ul>
-                            <div className={`mt-5`}>
+                            <div className={`mt-4`}>
                                 <span className={`${styles.backBtn}`}>
                                     <Link href="/" >
                                         <a>
@@ -182,18 +183,17 @@ export default function Register(props) {
                                     </Form.Row>
                                     <Form.Row>
                                         <Form.Group as={Col} className="mb-3">
-                                            <div className="d-flex justify-content-end align-items-center mt-3">
-                                                {!loading && data && !error && <span className="mr-2">{data.message}</span>}
-                                                {!loading && error && !data && <span className="mr-2">{error.message}</span>}
-                                                {loading && <Spinner animation="border" role="status" className="mr-2">
+                                            <div className="d-flex justify-content-center align-items-center mt-2 mb-2">
+                                                {!loading && data && !error && <span className="text-success">{data.message}</span>}
+                                                {!loading && error && !data && <span className="text-danger">{error.message}</span>}
+                                                {loading && <Spinner animation="border" role="status">
                                                     <span className="sr-only">Loading...</span>
                                                 </Spinner>}
-                                                <button className={`w-100 btn d-flex align-items-center justify-content-center ${styles.button}`} type="submit">
-                                                <AiOutlineUserAdd />
-                                                    REGISTER
-                                                </button>
                                             </div>
-                                            
+                                            <button className={`w-100 btn d-flex align-items-center justify-content-center ${styles.button}`} type="submit">
+                                                <AiOutlineUserAdd />&nbsp;
+                                                REGISTER
+                                            </button>
                                         </Form.Group>
                                     </Form.Row>
                                     <div className="text-center">

@@ -30,14 +30,14 @@ function Contact(props) {
             details: message.value
         };
         contactusapi(body).then(response => {
-            debugger;
+            setError(null);
+            setLoading(false);
             setData(response);
-            setLoading(false);
         }).catch(function (error) {
-            debugger;
-            setError(error);
             setLoading(false);
-        })
+            setData(null);
+            setError(error);
+        });
     };
 
     return (
@@ -92,14 +92,14 @@ function Contact(props) {
                                     </Form.Control.Feedback>
                                 </Form.Group>
                             </Form.Row>
-                            <div className="d-flex justify-content-end align-items-center mt-3">
-                                {!loading && data && !error && <span className="mr-2">{data.message}</span>}
-                                {!loading && error && !data && <span className="mr-2">{error.message}</span>}
-                                {loading && !data && <Spinner animation="border" role="status" className="mr-2">
+                            <div className="d-flex justify-content-center align-items-center mt-2 mb-2">
+                                {!loading && data && !error && <span className="text-success">{data.message}</span>}
+                                {!loading && error && !data && <span className="text-danger">{error.message}</span>}
+                                {loading && <Spinner animation="border" role="status">
                                     <span className="sr-only">Loading...</span>
                                 </Spinner>}
-                                <Button variant="primary" size="lg" type="submit">Submit</Button>
                             </div>
+                            <Button variant="primary" size="lg" type="submit">Submit</Button>
                         </Form>
                     </div>
                 </div>

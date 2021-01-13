@@ -7,3 +7,7 @@ export const loginapi = async (data) => {
 export const registerapi = async (data) => {
     return await apicall('register', 'post', data)
 }
+
+export const forgotpasswordapi = async (data) => {
+    return await apicall('forgotpassword', 'post', data)
+}

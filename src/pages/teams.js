@@ -28,7 +28,7 @@ function Teams(props) {
                     <div className="row">
                         {!isError && isLoading && <React.Fragment>
 
-                            <div className="col-lg-4 col-md-6 text-center">\
+                            <div className="col-lg-4 col-md-6 text-center">
                         <MySkelton>
                                     <Skeleton circle={true} height={150} width={150} className="mb-3" />
                                     <Skeleton width="100%" height={15} />
@@ -36,7 +36,7 @@ function Teams(props) {
                                     <Skeleton width="100%" height={150} />
                                 </MySkelton>
                             </div>
-                            <div className="col-lg-4 col-md-6 text-center">\
+                            <div className="col-lg-4 col-md-6 text-center">
                         <MySkelton>
                                     <Skeleton circle={true} height={150} width={150} className="mb-3" />
                                     <Skeleton width="100%" height={15} />
@@ -44,7 +44,7 @@ function Teams(props) {
                                     <Skeleton width="100%" height={150} />
                                 </MySkelton>
                             </div>
-                            <div className="col-lg-4 col-md-6 text-center">\
+                            <div className="col-lg-4 col-md-6 text-center">
                         <MySkelton>
                                     <Skeleton circle={true} height={150} width={150} className="mb-3" />
                                     <Skeleton width="100%" height={15} />
