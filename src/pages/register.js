@@ -68,7 +68,7 @@ export default function Register(props) {
             </Head>
             <div className={`d-flex align-items-center ${styles.register}`}>
                 <div className={styles.bg}></div>
-                <Container className=" my-5">
+                <Container className="my-5">
                     <Row>
                         <Col className={styles.info} md={6}>
                             <div className={`d-flex flex-column align-items-start justify-content-center mb-4 ${styles.logo}`}>

@@ -11,3 +11,11 @@ export const registerapi = async (data) => {
 export const forgotpasswordapi = async (data) => {
     return await apicall('forgotpassword', 'post', data)
 }
+
+export const resetpasswordapi = async (data) => {
+    return await apicall('resetpassword', 'post', data)
+}
+
+export const activateapi = async (data) => {
+    return await apicall('activate', 'post', data)
+}
