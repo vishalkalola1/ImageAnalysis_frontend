@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import About from "../components/homePage/About";
 import MasterHead from "../components/homePage/MasterHead";
 import Navbar from "../components/navigations/Navbar";
-import styles from "../styles/Home.module.css";
+import styles from "../styles/index.module.css";
 import { scrollToTop, scrollTo } from '../utils/scroller';
 import Button from 'react-bootstrap/Button';
 import { IoChevronUpOutline } from "react-icons/io5";

@@ -8,6 +8,8 @@ import { FiArrowLeftCircle } from 'react-icons/fi';
 import { scrollTo } from '../utils/scroller';
 import { useFormInput } from '../hooks/form';
 import { loginapi } from '../Services/authService';
+import Router from 'next/router';
+
 
 export default function Login(props) {
     const [validated, setValidated] = useState(false);
@@ -35,9 +37,11 @@ export default function Login(props) {
         };
 
         loginapi(body).then(response => {
+            debugger;
             setError(null);
             setLoading(false);
             setData(response);
+            Router.push('/home')
         }).catch(function (error) {
             setLoading(false);
             setData(null);
