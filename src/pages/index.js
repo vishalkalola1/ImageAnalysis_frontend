@@ -32,7 +32,7 @@ function Home(props) {
         subtitle={
           <p className={`font-weight-light mb-5 textWhite75 ${styles.subTitle}`}>
             Understand how consumers talk about you online with StalkMarket's
-            Image Analyis on Social Media. Make faster, data-driven decisions
+            Image Analysis on Social Media. Make faster, data-driven decisions
             today!.
           </p>
         }

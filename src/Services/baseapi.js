@@ -1,4 +1,4 @@
-export const baseURL = "http://localhost:8000/" //process.env.BASE_BACKEND_URL
+export const baseURL = process.env.BASE_BACKEND_URL
 
 export const apicall = (url, method, body, query = "") => {
     return new Promise((resolve, reject) => {
