@@ -54,7 +54,7 @@ function Contact(props) {
                     <div className="col-lg-5 col-md-6 d-flex flex-column justify-content-center">
                         <div className="d-flex flex-column flex-md-row justify-content-center justify-content-md-start align-items-center">
                             <FaMapMarkerAlt size="1.5rem" className={`${styles.icon} mb-2 mb-md-auto`} />
-                            <span className="ml-2 text-center text-md-left">14 Rue Mario Capra, 94400 Vitry-sur-seine, France</span>
+                            <span className="ml-2 text-center text-md-left">14, Rue Mario Capra, 94400 Vitry-sur-seine, France</span>
                         </div>
                         <div className="d-flex flex-column flex-md-row justify-content-center justify-content-md-start align-items-center mt-3 mt-md-5">
                             <FaPhone size="1.5rem" className={`${styles.icon} mb-2 mb-md-auto`} />
