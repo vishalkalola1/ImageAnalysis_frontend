@@ -27,8 +27,11 @@ export default function reset(props) {
         event.preventDefault();
         const form = event.currentTarget;
         if (form.checkValidity() === false) {
-            event.preventDefault();
+            setError(null);
+            setLoading(false);
+            setData(null);
             event.stopPropagation();
+            return
         }
 
         if(password.value !== cpassword.value){

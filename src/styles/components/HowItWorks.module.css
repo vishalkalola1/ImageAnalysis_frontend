@@ -1,3 +1,9 @@
 .icon{
     color: #f4623a;
 }
+
+@media (max-width: 992px) {
+    .mobile{
+        margin-bottom: 50px;
+    }
+}

@@ -23,10 +23,12 @@ export default function Login(props) {
     const handleSubmit = (event) => {
         event.preventDefault();
         const form = event.currentTarget;
-
         if (form.checkValidity() === false) {
-            event.preventDefault();
+            setError(null);
+            setLoading(false);
+            setData(null);
             event.stopPropagation();
+            return
         }
         setValidated(true);
         setLoading(true);
@@ -74,7 +76,7 @@ export default function Login(props) {
                                 </Link>
                             </div>
                             <p className={styles.heading}>
-                                Brand Image Processing is more than a just a marketing hype! If you are serious about implementing image analysis to level up your branding game and create the best marketing strategies,you are at the right place.
+                                Brand Image Processing is more than a just a marketing hype! If you are serious about implementing image analysis to level up your branding game and create the best marketing strategies, you are at the right place.
                                 Andes/StalkMarket makes it accessible and easy.
                             </p>
                             <span>Sign-in and get access to:</span>

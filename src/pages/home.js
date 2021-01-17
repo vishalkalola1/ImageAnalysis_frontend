@@ -24,7 +24,7 @@ export default function Home(props) {
                         <p className="text-danger">We will in developing this module. we will get back soon.</p>
                     </div>
                     <div className="row d-flex align-items-center justify-content-center">
-                    <button onClick={logout}>Logout</button>
+                        <button onClick={logout}>Logout</button>
                     </div>
                 </div>
             </div>

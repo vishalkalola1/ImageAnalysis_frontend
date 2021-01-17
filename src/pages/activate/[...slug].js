@@ -1,30 +1,21 @@
 import { useRouter } from 'next/router'
 import { activateapi } from '../../Services/authService';
 import React, {useEffect, useState} from "react";
-import {Col, Container, Form, InputGroup, Row, Spinner} from "react-bootstrap";
+import {Col, Container, Row, Spinner} from "react-bootstrap";
 import styles from "../../styles/activation.module.css";
 import Head from "next/head";
 import Link from "next/link";
-import {FiArrowLeftCircle} from "react-icons/fi";
-import {AiOutlineLock, AiOutlineMail, AiOutlineUser, AiOutlineUserAdd} from "react-icons/ai";
-import {RiShieldUserLine} from "react-icons/ri";
-import {scrollTo} from "../../utils/scroller";
 
 export default function activate(props){
 
     const router = useRouter()
     const slug = router.query.slug || []
 
-    const [validated, setValidated] = useState(false);
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
 
-    const [apicall, setApicall] = useState(true);
-
     const handleSubmit = async () => {
-        console.log(1);
-        setApicall(false);
         setLoading(true);
         let data = {userid:slug[0], token:slug[1]}
         activateapi(data).then(response => {

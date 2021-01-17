@@ -7,7 +7,7 @@ import useSWR from 'swr';
 import MySkelton from '../components/MySkelton';
 import Skeleton from "react-loading-skeleton";
 import Navbar from "../components/navigations/Navbar";
-import { FaLinkedin, FaGithub, FaStackOverflow, FaTwitter, FaLinkedinIn } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaStackOverflow } from "react-icons/fa";
 import { withTranslation } from '../../i18n';
 
 function Teams(props) {
@@ -29,7 +29,7 @@ function Teams(props) {
                         {!isError && isLoading && <React.Fragment>
 
                             <div className="col-lg-4 col-md-6 text-center">
-                        <MySkelton>
+                                <MySkelton>
                                     <Skeleton circle={true} height={150} width={150} className="mb-3" />
                                     <Skeleton width="100%" height={15} />
                                     <Skeleton width="100%" height={15} />
@@ -37,7 +37,7 @@ function Teams(props) {
                                 </MySkelton>
                             </div>
                             <div className="col-lg-4 col-md-6 text-center">
-                        <MySkelton>
+                                <MySkelton>
                                     <Skeleton circle={true} height={150} width={150} className="mb-3" />
                                     <Skeleton width="100%" height={15} />
                                     <Skeleton width="100%" height={15} />
@@ -45,7 +45,7 @@ function Teams(props) {
                                 </MySkelton>
                             </div>
                             <div className="col-lg-4 col-md-6 text-center">
-                        <MySkelton>
+                                <MySkelton>
                                     <Skeleton circle={true} height={150} width={150} className="mb-3" />
                                     <Skeleton width="100%" height={15} />
                                     <Skeleton width="100%" height={15} />

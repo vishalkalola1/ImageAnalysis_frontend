@@ -19,7 +19,11 @@ function Contact(props) {
         event.preventDefault();
         const form = event.currentTarget;
         if (form.checkValidity() === false) {
+            setError(null);
+            setLoading(false);
+            setData(null);
             event.stopPropagation();
+            return
         }
         setValidated(true);
         setLoading(true);
@@ -43,23 +47,25 @@ function Contact(props) {
     return (
         <section className={`pageSection bg-light`} id="contact">
             <div className="container">
+                <div className="row d-flex justify-content-center mb-3">
+                    <h2 className="display-4 mb-4 text-center text-md-left">Contact Us</h2>
+                </div>
                 <div className="row">
                     <div className="col-lg-5 col-md-6 d-flex flex-column justify-content-center">
                         <div className="d-flex flex-column flex-md-row justify-content-center justify-content-md-start align-items-center">
                             <FaMapMarkerAlt size="1.5rem" className={`${styles.icon} mb-2 mb-md-auto`} />
-                            <span className="ml-2 text-center text-md-left">14-16 Rue Voltaire, 94270 Le Kremlin-Bicêtre, France</span>
+                            <span className="ml-2 text-center text-md-left">14 Rue Mario Capra, 94400 Vitry-sur-seine, France</span>
                         </div>
                         <div className="d-flex flex-column flex-md-row justify-content-center justify-content-md-start align-items-center mt-3 mt-md-5">
                             <FaPhone size="1.5rem" className={`${styles.icon} mb-2 mb-md-auto`} />
-                            <span className="ml-2 text-center text-md-left">+33 1 44 08 01 01</span>
+                            <span className="ml-2 text-center text-md-left">+33 (0) 7 53 84 03 74</span>
                         </div>
                         <div className="d-flex flex-column flex-md-row justify-content-center justify-content-md-start align-items-center mt-3 mt-md-5">
                             <FaEnvelope size="1.5rem" className={`${styles.icon} mb-2 mb-md-auto`} />
-                            <span className="ml-2 text-center text-md-left">contact.stalkmarket@gmail.com</span>
+                            <span className="ml-2 text-center text-md-left">andesinfotech@gmail.com</span>
                         </div>
                     </div>
                     <div className="col-lg-7 col-md-6 mt-5 mt-md-auto">
-                        <h2 className="display-4 mb-4 text-center text-md-left">Contact Us</h2>
                         <Form noValidate validated={validated} onSubmit={handleSubmit}>
                             <Form.Row>
                                 <Form.Group as={Col} controlId="formFirstName">

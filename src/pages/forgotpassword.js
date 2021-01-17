@@ -3,8 +3,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { Form, Container, Row, Col, InputGroup, Spinner } from 'react-bootstrap';
 import styles from "../styles/ForgotPassword.module.css";
-import { AiOutlineUser, AiOutlineLock, AiOutlineMail, AiOutlineUserAdd } from 'react-icons/ai';
-import { RiShieldUserLine } from 'react-icons/ri';
+import { AiOutlineMail, AiOutlineUserAdd } from 'react-icons/ai';
 import { FiArrowLeftCircle } from 'react-icons/fi';
 import { scrollTo } from '../utils/scroller';
 import { forgotpasswordapi } from '../Services/authService';
@@ -21,8 +20,11 @@ export default function ForgotPassword(props) {
         event.preventDefault();
         const form = event.currentTarget;
         if (form.checkValidity() === false) {
-            event.preventDefault();
+            setError(null);
+            setLoading(false);
+            setData(null);
             event.stopPropagation();
+            return
         }
         setValidated(true);
         setLoading(true);
@@ -64,7 +66,7 @@ export default function ForgotPassword(props) {
                                 </Link>
                             </div>
                             <p className={styles.heading}>
-                                Brand Image Processing is more than a just a marketing hype! If you are serious about implementing image analysis to level up your branding game and create the best marketing strategies,you are at the right place.
+                                Brand Image Processing is more than a just a marketing hype! If you are serious about implementing image analysis to level up your branding game and create the best marketing strategies, you are at the right place.
                                 Andes/StalkMarket makes it accessible and easy.
                             </p>
                             <div className={`mt-4`}>
