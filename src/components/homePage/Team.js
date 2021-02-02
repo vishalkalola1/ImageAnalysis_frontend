@@ -18,7 +18,7 @@ export default function Team() {
 
                         <div className="col-lg-4 col-md-6 text-center">
                         <MySkelton>
-                                <Skeleton circle={true} height={150} width={150} className="mb-3" />
+                                <Skeleton circle={true} height={200} width={200} className="mb-3" />
                                 <Skeleton width="100%" height={15} />
                                 <Skeleton width="100%" height={15} />
                                 <Skeleton width="100%" height={150} />
@@ -26,7 +26,7 @@ export default function Team() {
                         </div>
                         <div className="col-lg-4 col-md-6 text-center">
                         <MySkelton>
-                                <Skeleton circle={true} height={150} width={150} className="mb-3" />
+                                <Skeleton circle={true} height={200} width={200} className="mb-3" />
                                 <Skeleton width="100%" height={15} />
                                 <Skeleton width="100%" height={15} />
                                 <Skeleton width="100%" height={150} />
@@ -34,7 +34,7 @@ export default function Team() {
                         </div>
                         <div className="col-lg-4 col-md-6 text-center">
                         <MySkelton>
-                                <Skeleton circle={true} height={150} width={150} className="mb-3" />
+                                <Skeleton circle={true} height={200} width={200} className="mb-3" />
                                 <Skeleton width="100%" height={15} />
                                 <Skeleton width="100%" height={15} />
                                 <Skeleton width="100%" height={150} />
@@ -48,7 +48,7 @@ export default function Team() {
                         if (index < 3) {
                             return <div key={index} className="col-lg-4 col-md-6 text-center">
                                 <div className="mx-auto">
-                                    <img src={team.imageurl} className="rounded-circle" alt="Sample avatar" />
+                                    <img src={team.imageurl} className="rounded-circle" width={200} height={200} alt="Sample avatar" />
                                 </div>
                                 <h5 className="font-weight-bold mt-4 mb-3">{team.lastname} {team.firstname}</h5>
                                 <p className="text-uppercase blue-text"><strong>{team.position}</strong></p>
