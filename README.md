@@ -8,16 +8,16 @@ Image processing is a cool thing in today’s date in technology. But have you e
 
 # Poster:
 
-<a href="https://github.com/vishalkalola1/BrandImageAnalysis/blob/master/Poster.jpg"><img src="https://github.com/vishalkalola1/BrandImageAnalysis/blob/master/Poster.jpg" title=""/></a>
+<a href="https://github.com/vishalkalola1/ImageAnalysis_frontend/blob/main/Poster.jpg"><img src="https://github.com/vishalkalola1/ImageAnalysis_frontend/blob/main/Poster.jpg" title=""/></a>
 
 # Screenshots:
 
 | Home | How it Works |
 | --- | --- |
-| <a href="https://github.com/vishalkalola1/BrandImageAnalysis/blob/master/Web1.png"><img src="https://github.com/vishalkalola1/BrandImageAnalysis/blob/master/Web1.png" title=""/></a> | <a href="https://github.com/vishalkalola1/BrandImageAnalysis/blob/master/Web2.png"><img src="https://github.com/vishalkalola1/BrandImageAnalysis/blob/master/Web2.png" title=""/></a> |
+| <a href="https://github.com/vishalkalola1/ImageAnalysis_frontend/blob/main/Web1.png"><img src="https://github.com/vishalkalola1/ImageAnalysis_frontend/blob/main/Web1.png" title=""/></a> | <a href="https://github.com/vishalkalola1/ImageAnalysis_frontend/blob/main/Web2.png"><img src="https://github.com/vishalkalola1/ImageAnalysis_frontend/blob/main/Web2.png" title=""/></a> |
 
 
 | Admin | Report |
 | --- | --- |
-| <a href="https://github.com/vishalkalola1/BrandImageAnalysis/blob/master/Web3.png"><img src="https://github.com/vishalkalola1/BrandImageAnalysis/blob/master/Web3.png" title=""/></a> | <a href="https://github.com/vishalkalola1/BrandImageAnalysis/blob/master/Web4.png"><img src="https://github.com/vishalkalola1/BrandImageAnalysis/blob/master/Web4.png" title=""/></a> |
+| <a href="https://github.com/vishalkalola1/ImageAnalysis_frontend/blob/main/Web3.png"><img src="https://github.com/vishalkalola1/ImageAnalysis_frontend/blob/main/Web3.png" title=""/></a> | <a href="https://github.com/vishalkalola1/ImageAnalysis_frontend/blob/main/Web4.png"><img src="https://github.com/vishalkalola1/ImageAnalysis_frontend/blob/main/Web4.png" title=""/></a> |
 
